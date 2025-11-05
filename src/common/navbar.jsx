@@ -1,13 +1,13 @@
+import auditLogo from '../assets/auditlogo.svg';
+
 export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 py-4 bg-[#24202066] text-gray-100 border-b border-transparent" style={{borderImage: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,239,231,0.4) 37%, rgba(255,239,231,0) 100%) 1'}}>
       <div className="container mx-auto px-10 lg:px-10 xl:px-10 2xl:px-10 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="currentColor"/>
-          </svg>
-          <span className="text-xl font-semibold">AuditUp</span>
+          <img src={auditLogo} alt="AuditUp Logo" className="w-[120px] h-[50px]" />
+        
         </div>
 
         {/* Navigation */}

@@ -13,7 +13,7 @@ export default function SecurityLayers() {
       const scrollDelta = currentScrollY - lastScrollY;
 
       if (Math.abs(scrollDelta) > 50) {
-        if (scrollDelta > 0 && scrollStage < 4) {
+        if (scrollDelta > 0 && scrollStage < 14) {
           setScrollStage(prev => prev + 1);
         } else if (scrollDelta < 0 && scrollStage > 0) {
           setScrollStage(prev => prev - 1);
@@ -27,22 +27,23 @@ export default function SecurityLayers() {
   }, [scrollStage, lastScrollY]);
 
   const getPlatePosition = (plate) => {
-    // Stage 0-2: Initial positions with rightward offset
-    if (scrollStage < 3) {
+    
+    
+    if (scrollStage <= 13) {
       const positions = {
-        left: { x: 200, y: 0 },
-        top: { x: 200, y: 0 },
-        bottom: { x: 200, y: 0 },
-        right: { x: 200, y: 0 }
+        left: { x: 0, y: 0 },
+        top: { x: 0, y: 0 },
+        bottom: { x: 0, y: 0 },
+        right: { x: 0, y: 0 }
       };
       return positions[plate];
     }
-    // Stage 3+: All plates align horizontally in same row (after scroll)
+   
     const positions = {
-      left: { x: -180, y: -40 },
-      top: { x: 50, y: 0 },
-      bottom: { x: 340, y: -80 },
-      right: { x: 580, y: -40 }
+      left: { x: -400, y: -40 },
+      top: { x: -160, y: 0 },
+      bottom: { x: 140, y: -80 },
+      right: { x: 380, y: -40 }
     };
     return positions[plate];
   };
@@ -75,7 +76,7 @@ export default function SecurityLayers() {
             <svg
               width="1200"
               height="500"
-              viewBox="300 0 800 500"
+              viewBox="100 0 800 500"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className="max-w-full"
@@ -93,7 +94,7 @@ export default function SecurityLayers() {
                 />
                 <motion.g
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: scrollStage >= 4 ? 1 : 0 }}
+                  animate={{ opacity: scrollStage >= 14 ? 1 : 0 }}
                   transition={{ duration: 0.7 }}
                 >
                   <line
@@ -125,7 +126,7 @@ export default function SecurityLayers() {
                 />
                 <motion.g
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: scrollStage >= 4 ? 1 : 0 }}
+                  animate={{ opacity: scrollStage >= 14 ? 1 : 0 }}
                   transition={{ duration: 0.7 }}
                 >
                   <line
@@ -157,7 +158,7 @@ export default function SecurityLayers() {
                 />
                 <motion.g
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: scrollStage >= 4 ? 1 : 0 }}
+                  animate={{ opacity: scrollStage >= 14 ? 1 : 0 }}
                   transition={{ duration: 0.7 }}
                 >
                   <line
@@ -189,7 +190,7 @@ export default function SecurityLayers() {
                 />
                 <motion.g
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: scrollStage >= 4 ? 1 : 0 }}
+                  animate={{ opacity: scrollStage >= 14 ? 1 : 0 }}
                   transition={{ duration: 0.7 }}
                 >
                   <line
@@ -258,11 +259,10 @@ export default function SecurityLayers() {
               {/* Vertical lines - pillars */}
               <motion.g
                 stroke="#e5e7eb"
-                strokeWidth="1.5"
+                strokeWidth="3.5"
                 initial={{ opacity: 0.3 }}
                 animate={{ 
-                  opacity: scrollStage < 2 ? 0.3 : 0,
-                  x: 200
+                  opacity: scrollStage <= 13 ? 0.3 : 0
                 }}
                 transition={{ duration: 0.7 }}
               >
@@ -275,10 +275,6 @@ export default function SecurityLayers() {
             </svg>
           </div>
 
-          {/* Scroll indicator */}
-          <div className="mt-8 text-gray-500 text-sm">
-            Scroll Stage: {scrollStage} / 4
-          </div>
         </div>
       </div>
     </div>
