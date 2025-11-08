@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/logo.png'; // Adjust the path based on your folder structure
 
 export default function Testimonials() {
   const testimonials = [
@@ -23,6 +22,16 @@ export default function Testimonials() {
     }
   ];
 
+  // Placeholder logo SVG
+  const LogoPlaceholder = ({ size = "large" }) => (
+    <div className={`${size === "large" ? "w-[216px] h-[63px]" : "w-[109px] h-[32px]"} flex items-center justify-center`}>
+      <svg viewBox="0 0 216 63" className="w-full h-full">
+        <circle cx="31.5" cy="31.5" r="25" fill="none" stroke="#6B7280" strokeWidth="2"/>
+        <text x="70" y="40" fill="#6B7280" fontSize="24" fontFamily="sans-serif">Spherule</text>
+      </svg>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-black text-white py-16 px-4">
       {/* Header */}
@@ -35,27 +44,40 @@ export default function Testimonials() {
         </h1>
       </div>
 
-      {/* Grid Layout - Fixed 410px squares */}
-      <div className="max-w-[1230px] mx-auto">
+      {/* Grid Layout with Plus Signs */}
+      <div className="max-w-[1230px] mx-auto relative">
+        {/* Plus signs at grid intersections */}
+    <div className="absolute inset-0 pointer-events-none z-10">
+          {/* Top row plus signs */}
+          <div className="absolute -top-2.5 -left-2 text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          <div className="absolute -top-2.5 left-[401.5px] text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          <div className="absolute -top-2.5 left-[811.5px] text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          <div className="absolute -top-2.5 -right-2 text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          
+          {/* Middle row plus signs */}
+          <div className="absolute -left-2 top-[399.5px] text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          <div className="absolute top-[399.5px] left-[401.5px] text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          <div className="absolute top-[399.5px] left-[811.5px] text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          <div className="absolute -right-2 top-[399.5px] text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          
+          {/* Bottom row plus signs */}
+          <div className="absolute -bottom-1.5 -left-2 text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          <div className="absolute -bottom-1.5 left-[401.5px] text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          <div className="absolute -bottom-1.5 left-[811.5px] text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+          <div className="absolute -bottom-1.5 -right-2 text-white w-[17px] h-[17px] flex items-center justify-center text-xl leading-none">+</div>
+        </div>
+
         <div className="grid grid-cols-3 grid-rows-2 gap-px bg-gray-800">
           {/* Top Left - Logo */}
-          <div className="bg-black flex items-center justify-center p-8 border border-gray-800 w-[410px] h-[410px]">
-            <img 
-              src={logo} 
-              alt="Spherule Logo" 
-              className="w-[216px] h-[63px] opacity-100"
-            />
+          <div className="bg-black flex items-center justify-center p-8 border border-[#FFEFE766] w-[410px] h-[410px]">
+            <LogoPlaceholder size="large" />
           </div>
 
           {/* Top Middle - First Testimonial */}
-          <div className="bg-black flex flex-col items-center justify-center p-8 border border-gray-800 w-[410px] h-[410px]">
+          <div className="bg-black flex flex-col items-center justify-center p-8 border border-[#FFEFE766] w-[410px] h-[410px]">
             <div className="max-w-xs text-center">
               <div className="flex items-center justify-center gap-3 mb-6">
-                <img 
-                  src={logo} 
-                  alt="Spherule Logo" 
-                  className="w-[109px] h-[32px] opacity-100"
-                />
+                <LogoPlaceholder size="small" />
               </div>
               
               <p className="font-inter font-normal text-[16px] leading-[24px] tracking-[-0.02em] text-gray-400 mb-4 text-center">
@@ -80,23 +102,15 @@ export default function Testimonials() {
           </div>
 
           {/* Top Right - Logo */}
-          <div className="bg-black flex items-center justify-center p-8 border border-gray-800 w-[410px] h-[410px]">
-            <img 
-              src={logo} 
-              alt="Spherule Logo" 
-              className="w-[216px] h-[63px] opacity-100"
-            />
+          <div className="bg-black flex items-center justify-center p-8 border border-[#FFEFE766] w-[410px] h-[410px]">
+            <LogoPlaceholder size="large" />
           </div>
 
           {/* Bottom Left - Second Testimonial */}
-          <div className="bg-black flex flex-col items-center justify-center p-8 border border-gray-800 w-[410px] h-[410px]">
+          <div className="bg-black flex flex-col items-center justify-center p-8 border border-[#FFEFE766] w-[410px] h-[410px]">
             <div className="max-w-xs text-center">
               <div className="flex items-center justify-center gap-3 mb-6">
-                <img 
-                  src={logo} 
-                  alt="Spherule Logo" 
-                  className="w-[109px] h-[32px] opacity-100"
-                />
+                <LogoPlaceholder size="small" />
               </div>
               
               <p className="font-inter font-normal text-[16px] leading-[24px] tracking-[-0.02em] text-gray-400 mb-4 text-center">
@@ -121,23 +135,15 @@ export default function Testimonials() {
           </div>
 
           {/* Bottom Middle - Logo */}
-          <div className="bg-black flex items-center justify-center p-8 border border-gray-800 w-[410px] h-[410px]">
-            <img 
-              src={logo} 
-              alt="Spherule Logo" 
-              className="w-[216px] h-[63px] opacity-100"
-            />
+          <div className="bg-black flex items-center justify-center p-8 border border-[#FFEFE766] w-[410px] h-[410px]">
+            <LogoPlaceholder size="large" />
           </div>
 
           {/* Bottom Right - Third Testimonial */}
-          <div className="bg-black flex flex-col items-center justify-center p-8 border border-gray-800 w-[410px] h-[410px]">
+          <div className="bg-black flex flex-col items-center justify-center p-8 border border-[#FFEFE766] w-[410px] h-[410px]">
             <div className="max-w-xs text-center">
               <div className="flex items-center justify-center gap-3 mb-6">
-                <img 
-                  src={logo} 
-                  alt="Spherule Logo" 
-                  className="w-[109px] h-[32px] opacity-100"
-                />
+                <LogoPlaceholder size="small" />
               </div>
               
               <p className="font-inter font-normal text-[16px] leading-[24px] tracking-[-0.02em] text-gray-400 mb-4 text-center">

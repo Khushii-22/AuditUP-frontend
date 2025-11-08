@@ -132,21 +132,20 @@ export default function FeatureSection() {
                   confidence badge and citation. Trust it or fix it in one
                   click.
                 </p>
-               <button
-  className="flex items-center gap-2 bg-[#1B2937] hover:bg-slate-700 w-[141px] h-[42px] opacity-100 pt-3 pr-4 pb-3 pl-4 rounded-md transition-colors justify-center whitespace-nowrap"
-  style={{
-    fontFamily: "Space Grotesk, sans-serif",
-    fontWeight: 500,
-    fontSize: "14px",
-    lineHeight: "100%",
-    letterSpacing: "0%",
-    color: "#F3F4F6"
-  }}
->
-  LEARN MORE
-  <ArrowRight className="w-4 h-4" />
-</button>
-
+                <button
+                  className="flex items-center gap-2 bg-[#1B2937] w-[141px] h-[42px] opacity-100 pt-3 pr-4 pb-3 pl-4 rounded-md transition-colors justify-center whitespace-nowrap"
+                  style={{
+                    fontFamily: "Space Grotesk, sans-serif",
+                    fontWeight: 500,
+                    fontSize: "14px",
+                    lineHeight: "100%",
+                    letterSpacing: "0%",
+                    color: "#F3F4F6",
+                  }}
+                >
+                  LEARN MORE
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
 
               {/* Right Visual */}

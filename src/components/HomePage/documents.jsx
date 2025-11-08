@@ -12,7 +12,8 @@ export default function SecurityLayers() {
       const currentScrollY = window.scrollY;
       const scrollDelta = currentScrollY - lastScrollY;
 
-      if (Math.abs(scrollDelta) > 50) {
+      // Reduced sensitivity - increased threshold from 50 to 100
+      if (Math.abs(scrollDelta) > 100) {
         if (scrollDelta > 0 && scrollStage < 14) {
           setScrollStage(prev => prev + 1);
         } else if (scrollDelta < 0 && scrollStage > 0) {
